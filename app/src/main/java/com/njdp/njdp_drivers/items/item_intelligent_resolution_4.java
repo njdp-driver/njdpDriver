@@ -329,6 +329,7 @@ public class item_intelligent_resolution_4 extends Fragment implements View.OnCl
             Intent intent = new Intent(getActivity(), BNDGuideActivity.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable(ROUTE_PLAN_NODE, (BNRoutePlanNode) mBNRoutePlanNode);
+            bundle.putSerializable("naviview", 4);
             intent.putExtras(bundle);
             startActivity(intent);
 

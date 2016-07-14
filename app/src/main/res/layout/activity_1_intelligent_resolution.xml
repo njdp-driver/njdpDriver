@@ -78,7 +78,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/intelligent_arrange_div"
         android:layout_above="@+id/intelligent_arrange_bottom">
-        <com.baidu.mapapi.map.TextureMapView
+        <com.baidu.mapapi.map.MapView
             android:id="@+id/bmapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -119,6 +119,6 @@
             android:layout_marginLeft="@dimen/margin5"
             android:textColor="@color/whiteFont"
             android:textSize="@dimen/font20"
-            android:text="智能规划"/>
+            android:text="去这里"/>
     </RelativeLayout>
 </RelativeLayout>

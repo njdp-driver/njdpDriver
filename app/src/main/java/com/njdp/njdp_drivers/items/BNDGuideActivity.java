@@ -50,6 +50,7 @@ public class BNDGuideActivity extends Activity {
     private final String TAG = BNDGuideActivity.class.getName();
     private BNRoutePlanNode mBNRoutePlanNode = null;
     private BaiduNaviCommonModule mBaiduNaviCommonModule = null;
+    private String naviview = "";
 
     /*
      * 对于导航模块有两种方式来实现发起导航。 1：使用通用接口来实现 2：使用传统接口来实现
@@ -61,7 +62,8 @@ public class BNDGuideActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        item_intelligent_resolution_3.activityList.add(this);
+        item_intelligent_resolution_4.activityList.add(this);
+
         createHandler();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
         }
@@ -88,9 +90,12 @@ public class BNDGuideActivity extends Activity {
         if(intent!=null){
             Bundle bundle = intent.getExtras();
             if(bundle!=null){
-                mBNRoutePlanNode = (BNRoutePlanNode)bundle.getSerializable(item_intelligent_resolution_3.ROUTE_PLAN_NODE);
+                mBNRoutePlanNode = (BNRoutePlanNode)bundle.getSerializable(item_intelligent_resolution_4.ROUTE_PLAN_NODE);
+                //naviview = (String)bundle.getSerializable("naviview");
             }
         }
+
+
 
         //开始导航后调用导航HUD
         /*******************************************导航 hud *****************/
@@ -142,7 +147,19 @@ public class BNDGuideActivity extends Activity {
         } else {
             BNRouteGuideManager.getInstance().onDestroy();
         }
-        item_intelligent_resolution_3.activityList.remove(this);
+
+        if(item_intelligent_resolution_4.activityList.size()>0){
+            item_intelligent_resolution_4.activityList.remove(this);
+            item_intelligent_resolution_4.activityList.clear();
+        }
+
+        if(item_intelligent_resolution_3.activityList.size()>0){
+            item_intelligent_resolution_3.activityList.remove(this);
+            item_intelligent_resolution_3.activityList.clear();
+        }
+
+
+
     }
 
     @Override
